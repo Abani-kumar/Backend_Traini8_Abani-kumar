@@ -13,6 +13,7 @@ This project is an MVP for a registry of Government-funded Training Centers buil
 ## API Endpoints
 
 ### 1. Create Training Center
+
 - **URL**: `/api/training-centers`
 - **Method**: `POST`
 - **Request Body**: JSON with training center details
@@ -25,6 +26,7 @@ This project is an MVP for a registry of Government-funded Training Centers buil
 - **Response**: Newly created training center data with ID
 
 ### 2. Get All Training Centers
+
 - **URL**: `/api/training-centers`
 - **Method**: `GET`
 - **Response**: List of all training centers (empty list if none exist)
@@ -32,29 +34,44 @@ This project is an MVP for a registry of Government-funded Training Centers buil
 ## Setup Instructions
 
 ### Prerequisites
+
 - Java JDK 17 or higher
 - Maven 3.6 or higher
 
 ### Steps to Run
 
 1. **Clone the repository**
+
    ```
    git clone https://github.com/yourusername/traini8-registry.git
    cd traini8
    ```
 
-2. **Build the project**
+2. **Setup applcation.properties**
+   Navigate to:
+   `src/main/resources/application.properties `
+   Add the following content:
+
+   ```
+   spring.datasource.url=jdbc:postgresql://localhost:5432/your_database_name
+   spring.datasource.username=your_database_user
+   spring.datasource.password=your_database_password```
+
+   ```
+
+3. **Build the project**
+
    ```
    mvn clean install
    ```
 
-3. **Run the application**
+4. **Run the application**
    ```
    mvn spring-boot:run
    ```
 
-
 ### Create a Training Center
+
 ```bash
 curl -X POST http://localhost:8080/api/training-centers \
   -H "Content-Type: application/json" \
@@ -75,6 +92,7 @@ curl -X POST http://localhost:8080/api/training-centers \
 ```
 
 ### Get All Training Centers
+
 ```bash
 curl -X GET http://localhost:8080/api/training-centers
 ```
